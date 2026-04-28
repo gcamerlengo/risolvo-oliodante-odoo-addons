@@ -15,7 +15,6 @@ services:
     restart: unless-stopped
     depends_on:
       - db
-    command: ["odoo", "--admin-passwd=${ODOO_ADMIN_PASSWORD}"]
     ports:
       - "${ODOO_PORT:-8069}:8069"
     environment:
