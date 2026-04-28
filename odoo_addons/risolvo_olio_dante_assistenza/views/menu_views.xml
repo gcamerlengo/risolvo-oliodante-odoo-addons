@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_risolvo_assistance_root" name="Risolvo Assistenza" sequence="20"/>
+
+    <menuitem
+        id="menu_risolvo_assistance_operations"
+        name="Operativita"
+        parent="menu_risolvo_assistance_root"
+        sequence="10"/>
+    <menuitem
+        id="menu_risolvo_assistance_ticket"
+        name="Ticket"
+        parent="menu_risolvo_assistance_operations"
+        action="action_risolvo_assistance_ticket"
+        sequence="10"/>
+    <menuitem
+        id="menu_risolvo_assistance_intervention"
+        name="Interventi"
+        parent="menu_risolvo_assistance_operations"
+        action="action_risolvo_assistance_intervention"
+        sequence="20"/>
+
+    <menuitem
+        id="menu_risolvo_assistance_registry"
+        name="Anagrafiche"
+        parent="menu_risolvo_assistance_root"
+        sequence="20"/>
+    <menuitem
+        id="menu_risolvo_assistance_site"
+        name="Sedi e reparti"
+        parent="menu_risolvo_assistance_registry"
+        action="action_risolvo_assistance_site"
+        sequence="10"/>
+    <menuitem
+        id="menu_risolvo_assistance_asset"
+        name="Asset"
+        parent="menu_risolvo_assistance_registry"
+        action="action_risolvo_assistance_asset"
+        sequence="20"/>
+
+    <menuitem
+        id="menu_risolvo_assistance_configuration"
+        name="Configurazione"
+        parent="menu_risolvo_assistance_root"
+        groups="risolvo_olio_dante_assistenza.group_risolvo_assistance_manager"
+        sequence="90"/>
+    <menuitem
+        id="menu_risolvo_assistance_sla"
+        name="SLA"
+        parent="menu_risolvo_assistance_configuration"
+        action="action_risolvo_assistance_sla"
+        sequence="10"/>
+</odoo>

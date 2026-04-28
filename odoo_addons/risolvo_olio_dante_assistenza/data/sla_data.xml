@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="sla_incident_urgent" model="risolvo.assistance.sla">
+        <field name="name">Incidente urgente - fermo operativo</field>
+        <field name="category">incident</field>
+        <field name="priority">3</field>
+        <field name="response_hours">1</field>
+        <field name="resolution_hours">8</field>
+    </record>
+    <record id="sla_incident_high" model="risolvo.assistance.sla">
+        <field name="name">Incidente alta priorita</field>
+        <field name="category">incident</field>
+        <field name="priority">2</field>
+        <field name="response_hours">2</field>
+        <field name="resolution_hours">16</field>
+    </record>
+    <record id="sla_request_normal" model="risolvo.assistance.sla">
+        <field name="name">Richiesta ordinaria</field>
+        <field name="category">request</field>
+        <field name="priority">1</field>
+        <field name="response_hours">8</field>
+        <field name="resolution_hours">72</field>
+    </record>
+    <record id="sla_maintenance_normal" model="risolvo.assistance.sla">
+        <field name="name">Manutenzione programmata</field>
+        <field name="category">maintenance</field>
+        <field name="priority">1</field>
+        <field name="response_hours">24</field>
+        <field name="resolution_hours">120</field>
+    </record>
+</odoo>

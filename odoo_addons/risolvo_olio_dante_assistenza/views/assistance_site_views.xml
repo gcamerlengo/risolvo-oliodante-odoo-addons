@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_risolvo_assistance_site_tree" model="ir.ui.view">
+        <field name="name">risolvo.assistance.site.tree</field>
+        <field name="model">risolvo.assistance.site</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="plant_area"/>
+                <field name="contact_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_risolvo_assistance_site_form" model="ir.ui.view">
+        <field name="name">risolvo.assistance.site.form</field>
+        <field name="model">risolvo.assistance.site</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="partner_id"/>
+                            <field name="contact_id"/>
+                            <field name="plant_area"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Asset">
+                            <field name="asset_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                    <field name="asset_type"/>
+                                    <field name="criticality"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Ticket">
+                            <field name="ticket_ids" readonly="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="title"/>
+                                    <field name="priority"/>
+                                    <field name="state"/>
+                                    <field name="sla_deadline"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Note">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_risolvo_assistance_site" model="ir.actions.act_window">
+        <field name="name">Sedi e reparti</field>
+        <field name="res_model">risolvo.assistance.site</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_risolvo_assistance_intervention_tree" model="ir.ui.view">
+        <field name="name">risolvo.assistance.intervention.tree</field>
+        <field name="model">risolvo.assistance.intervention</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="ticket_id"/>
+                <field name="site_id"/>
+                <field name="asset_id"/>
+                <field name="technician_id"/>
+                <field name="intervention_type"/>
+                <field name="state"/>
+                <field name="start_datetime"/>
+                <field name="duration_hours"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_risolvo_assistance_intervention_form" model="ir.ui.view">
+        <field name="name">risolvo.assistance.intervention.form</field>
+        <field name="model">risolvo.assistance.intervention</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start" string="Avvia" type="object" class="btn-primary" invisible="state != 'planned'"/>
+                    <button name="action_done" string="Completa" type="object" class="btn-primary" invisible="state not in ('planned', 'running')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="planned,running,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="ticket_id"/>
+                            <field name="site_id"/>
+                            <field name="asset_id"/>
+                            <field name="technician_id"/>
+                            <field name="intervention_type"/>
+                        </group>
+                        <group>
+                            <field name="start_datetime"/>
+                            <field name="end_datetime"/>
+                            <field name="duration_hours"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lavorazione">
+                            <field name="work_done"/>
+                        </page>
+                        <page string="Materiali">
+                            <field name="parts_used"/>
+                        </page>
+                        <page string="Feedback">
+                            <field name="customer_feedback"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_risolvo_assistance_intervention" model="ir.actions.act_window">
+        <field name="name">Interventi</field>
+        <field name="res_model">risolvo.assistance.intervention</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

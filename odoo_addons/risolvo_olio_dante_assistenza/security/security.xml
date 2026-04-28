@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_risolvo_assistance" model="ir.module.category">
+        <field name="name">Risolvo Assistenza</field>
+        <field name="sequence">25</field>
+    </record>
+
+    <record id="group_risolvo_assistance_user" model="res.groups">
+        <field name="name">Utente Assistenza</field>
+        <field name="category_id" ref="module_category_risolvo_assistance"/>
+    </record>
+
+    <record id="group_risolvo_assistance_manager" model="res.groups">
+        <field name="name">Responsabile Assistenza</field>
+        <field name="category_id" ref="module_category_risolvo_assistance"/>
+        <field name="implied_ids" eval="[(4, ref('group_risolvo_assistance_user'))]"/>
+    </record>
+</odoo>
