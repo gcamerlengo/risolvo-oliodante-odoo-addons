@@ -4,10 +4,13 @@ Addon Odoo per gestire i flussi di assistenza e il presidio gestionale di Olio D
 
 ## Funzioni incluse
 
+- Dashboard operativa con ticket aperti raggruppati per stato.
 - Ticket assistenza con stati operativi: nuovo, qualificato, pianificato, in lavorazione, attesa cliente, risolto, chiuso.
 - Anagrafiche sedi/reparti e asset produttivi o gestionali.
 - Interventi tecnici remoti, telefonici, onsite o di analisi.
 - SLA configurabili per categoria e priorita.
+- Viste calendario, grafico e pivot per ticket e interventi.
+- Menu rapidi per miei ticket, ticket da pianificare, SLA scaduti e interventi in corso.
 - Tracciamento chatter e attivita tramite `mail.thread`.
 - Menu dedicato `Risolvo Assistenza`.
 

@@ -64,9 +64,73 @@
         </field>
     </record>
 
+    <record id="view_risolvo_assistance_intervention_search" model="ir.ui.view">
+        <field name="name">risolvo.assistance.intervention.search</field>
+        <field name="model">risolvo.assistance.intervention</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="ticket_id"/>
+                <field name="site_id"/>
+                <field name="asset_id"/>
+                <field name="technician_id"/>
+                <filter name="mine" string="Miei interventi" domain="[('technician_id', '=', uid)]"/>
+                <filter name="active" string="Da completare" domain="[('state', 'in', ('planned', 'running'))]"/>
+                <filter name="running" string="In corso" domain="[('state', '=', 'running')]"/>
+                <group expand="0" string="Raggruppa per">
+                    <filter name="group_state" string="Stato" context="{'group_by': 'state'}"/>
+                    <filter name="group_technician" string="Tecnico" context="{'group_by': 'technician_id'}"/>
+                    <filter name="group_site" string="Sede/Reparto" context="{'group_by': 'site_id'}"/>
+                    <filter name="group_type" string="Tipo" context="{'group_by': 'intervention_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_risolvo_assistance_intervention_calendar" model="ir.ui.view">
+        <field name="name">risolvo.assistance.intervention.calendar</field>
+        <field name="model">risolvo.assistance.intervention</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario interventi" date_start="start_datetime" date_stop="end_datetime" color="technician_id">
+                <field name="name"/>
+                <field name="ticket_id"/>
+                <field name="site_id"/>
+                <field name="technician_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_risolvo_assistance_intervention_graph" model="ir.ui.view">
+        <field name="name">risolvo.assistance.intervention.graph</field>
+        <field name="model">risolvo.assistance.intervention</field>
+        <field name="arch" type="xml">
+            <graph string="Interventi per stato" type="bar">
+                <field name="state"/>
+                <field name="intervention_type"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="action_risolvo_assistance_intervention" model="ir.actions.act_window">
         <field name="name">Interventi</field>
         <field name="res_model">risolvo.assistance.intervention</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar,graph</field>
+        <field name="search_view_id" ref="view_risolvo_assistance_intervention_search"/>
+    </record>
+
+    <record id="action_risolvo_assistance_my_intervention" model="ir.actions.act_window">
+        <field name="name">Miei interventi</field>
+        <field name="res_model">risolvo.assistance.intervention</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="search_view_id" ref="view_risolvo_assistance_intervention_search"/>
+        <field name="context">{'search_default_mine': 1, 'search_default_active': 1}</field>
+    </record>
+
+    <record id="action_risolvo_assistance_running_intervention" model="ir.actions.act_window">
+        <field name="name">Interventi in corso</field>
+        <field name="res_model">risolvo.assistance.intervention</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="search_view_id" ref="view_risolvo_assistance_intervention_search"/>
+        <field name="context">{'search_default_running': 1}</field>
     </record>
 </odoo>

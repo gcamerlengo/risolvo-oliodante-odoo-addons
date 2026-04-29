@@ -1,7 +1,7 @@
 {
     "name": "Risolvo - Assistenza Olio Dante",
     "summary": "Gestione flussi assistenza e servizi gestionali per Olio Dante spa",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.1.0",
     "category": "Services/Helpdesk",
     "author": "Risolvo",
     "license": "LGPL-3",

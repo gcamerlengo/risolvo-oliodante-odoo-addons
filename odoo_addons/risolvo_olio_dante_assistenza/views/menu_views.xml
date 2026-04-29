@@ -3,22 +3,59 @@
     <menuitem id="menu_risolvo_assistance_root" name="Risolvo Assistenza" sequence="20"/>
 
     <menuitem
+        id="menu_risolvo_assistance_dashboard"
+        name="Dashboard"
+        parent="menu_risolvo_assistance_root"
+        action="action_risolvo_assistance_dashboard"
+        sequence="1"/>
+
+    <menuitem
         id="menu_risolvo_assistance_operations"
         name="Operativita"
         parent="menu_risolvo_assistance_root"
         sequence="10"/>
     <menuitem
+        id="menu_risolvo_assistance_my_ticket"
+        name="Miei ticket"
+        parent="menu_risolvo_assistance_operations"
+        action="action_risolvo_assistance_my_ticket"
+        sequence="5"/>
+    <menuitem
         id="menu_risolvo_assistance_ticket"
-        name="Ticket"
+        name="Tutti i ticket"
         parent="menu_risolvo_assistance_operations"
         action="action_risolvo_assistance_ticket"
         sequence="10"/>
     <menuitem
+        id="menu_risolvo_assistance_ticket_to_plan"
+        name="Da pianificare"
+        parent="menu_risolvo_assistance_operations"
+        action="action_risolvo_assistance_ticket_to_plan"
+        sequence="12"/>
+    <menuitem
+        id="menu_risolvo_assistance_ticket_late"
+        name="SLA scaduti"
+        parent="menu_risolvo_assistance_operations"
+        action="action_risolvo_assistance_ticket_late"
+        sequence="14"/>
+    <menuitem
+        id="menu_risolvo_assistance_my_intervention"
+        name="Miei interventi"
+        parent="menu_risolvo_assistance_operations"
+        action="action_risolvo_assistance_my_intervention"
+        sequence="18"/>
+    <menuitem
         id="menu_risolvo_assistance_intervention"
-        name="Interventi"
+        name="Tutti gli interventi"
         parent="menu_risolvo_assistance_operations"
         action="action_risolvo_assistance_intervention"
         sequence="20"/>
+    <menuitem
+        id="menu_risolvo_assistance_running_intervention"
+        name="Interventi in corso"
+        parent="menu_risolvo_assistance_operations"
+        action="action_risolvo_assistance_running_intervention"
+        sequence="22"/>
 
     <menuitem
         id="menu_risolvo_assistance_registry"
