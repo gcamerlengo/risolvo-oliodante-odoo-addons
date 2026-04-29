@@ -24,6 +24,7 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ../../odoo_addons:/mnt/extra-addons
+      - ../../oca_addons/helpdesk:/mnt/oca-helpdesk
       - ./odoo.conf:/etc/odoo/odoo.conf:ro
 
 volumes:

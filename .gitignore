@@ -46,6 +46,9 @@ risolvo/
 Succedo/
 edge-debug-profile/
 
+# External OCA addons cloned on the server
+oca_addons/
+
 # Node artifacts, if any tooling is added later
 node_modules/
 dist/
